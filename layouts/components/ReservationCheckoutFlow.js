@@ -22,7 +22,7 @@ const Form = ({ closeReservationCheckout }) => {
       due_date: formData.dueDate,
       desired_visit_dates: formData.desiredVisitDates ? `${formData.desiredVisitDates[0]} to ${formData.desiredVisitDates[1]}` : 'No dates provided.',
       joined_mailing_list: formData.joinMailingList ? 'Yes' : 'No',
-      message: `${formData.firstName} ${formData.lastName} has reserved a spot! They are ${formData.isPregnant ? 'currently pregnant' : 'not currently pregnant'}. Their due date is ${formData.dueDate}. They would like to visit from ${formData.desiredVisitDates[0]} to ${formData.desiredVisitDates[1]}. They ${formData.joinMailingList ? 'would' : 'would not'} like to join the mailing list.`,
+      message: `${formData.firstName} ${formData.lastName} completed step 2 of reservation checkout! They are ${formData.isPregnant ? 'currently pregnant' : 'not currently pregnant'}. Their due date is ${formData.dueDate}. They would like to visit from ${formData.desiredVisitDates[0]} to ${formData.desiredVisitDates[1]}. They ${formData.joinMailingList ? 'would' : 'would not'} like to join the mailing list.`,
     };
 
     const emailTemplate = `
