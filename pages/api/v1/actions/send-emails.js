@@ -22,6 +22,9 @@ export default async function handler(req, res) {
     replyTo: req.body.messageConfig.replyTo ?? 'contact@yuzicare.com',
     subject: req.body.messageConfig.subject ?? 'No subject',
     html: req.body.emailTemplate,
+    headers: {
+      'Content-Type': 'text/html',
+    }
   };
 
   let transporter = nodemailer.createTransport({
