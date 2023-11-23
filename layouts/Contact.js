@@ -16,21 +16,22 @@ const Contact = ({ data }) => {
   const sendEmails = async (e) => {
     e.preventDefault();
 
-    const enteredFromName = form.current.elements.from_name.value;
+    const enteredFromName = form.current.elements.firstname.value;
     const honeyPotEntry = form.current.elements.url.value;
     const emailTemplateParams = {
-      from_name: form.current.elements.from_name.value,
-      from_email: form.current.elements.from_email.value,
-      is_pregnant: form.current.elements.is_pregnant.value ? 'Yes' : 'No',
+      firstname: form.current.elements.firstname.value,
+      lastname: form.current.elements.lastname.value,
+      email: form.current.elements.email.value,
+      is_pregnant_: form.current.elements.is_pregnant_.value ? 'Yes' : 'No',
       due_date: form.current.elements.due_date ? form.current.elements.due_date.value : '',
       message: form.current.elements.message.value,
-      attribution_source: form.current.elements.attribution_source.value,
+      how_did_you_hear_about_us_: form.current.elements.how_did_you_hear_about_us_.value,
       subject: form.current.elements.subject.value,
     };
 
     const toClientMessageConfig = {
       sendingEmailAddress: "contact@yuzicare.com",
-      receivingEmailAddress: emailTemplateParams.from_email,
+      receivingEmailAddress: emailTemplateParams.email,
       subject: "Thank You from Yuzi",
       bcc: ["harper@yuzicare.com", "steph@yuzicare.com", "michelle@yuzicare.com"],
     };
@@ -38,17 +39,17 @@ const Contact = ({ data }) => {
     const toYuziMessageConfig = {
       sendingEmailAddress: "contact@yuzicare.com",
       receivingEmailAddress: ["steph@yuzicare.com", "harper@yuzicare.com", "michelle@yuzicare.com"],
-      replyTo: emailTemplateParams.from_email,
+      replyTo: emailTemplateParams.email,
       subject: emailTemplateParams.subject,
     };
 
     const toYuziEmailTemplate = `
-    <p><strong>From:</strong> ${emailTemplateParams.from_name}:</p>
+    <p><strong>From:</strong> ${emailTemplateParams.firstname} ${emailTemplateParams.lastname}:</p>
 <p><strong>Subject:</strong> ${emailTemplateParams.subject}</p>
 <p style="padding: 12px; border-left: 4px solid #d0d0d0; font-style: italic;">${emailTemplateParams.message}</p>
-<p><strong>Is Pregnant:</strong> ${emailTemplateParams.is_pregnant}</p>
+<p><strong>Is Pregnant:</strong> ${emailTemplateParams.is_pregnant_}</p>
 <p><strong>Due Date:</strong> ${emailTemplateParams.due_date}</p>
-<p><strong>Attribution Source:</strong> ${emailTemplateParams.attribution_source}</p>
+<p><strong>Attribution Source:</strong> ${emailTemplateParams.how_did_you_hear_about_us_}</p>
 <p>&nbsp;</p>
 <p>Best wishes,</p>
 <p>&nbsp;</p>
@@ -59,7 +60,7 @@ const Contact = ({ data }) => {
     <div class="wrapper" style="background-color: #edf6f5;">
 <div class="header" style="text-align: center; margin: 10px; padding:10px"><img src="${process.env.NEXT_PUBLIC_BASE_URL}/images/logos/yuzi_lower_logo_600x200.png" alt="Yuzi Care" width="300" height="100"></div>
 <div class="content" style="margin: 0 auto; max-width: 600px; max-height: 200px; padding: 20px; background-color: #ffffff; border-radius: 25px;">
-<p>Dear ${emailTemplateParams.from_name},</p>
+<p>Dear ${emailTemplateParams.firstname} ${emailTemplateParams.lastname},</p>
 <p>Thank you for contacting Yuzi Care.</p>
 <p>We received your message and a staff member will be contacting you shortly.</p>
 <p>If you need anything else in the meantime, please feel free to contact us again at <a href="mailto:contact@yuzicare.com">contact@yuzicare.com</a> or call us directly at <a href="tel:2062226295">(206) 222-6295</a>.</p>
@@ -184,6 +185,7 @@ const Contact = ({ data }) => {
         <div className="pb-0 section row">
           <div className="col-12 md:col-6 lg:col-7">
             <form
+              id="contact-form"
               className="contact-form"
               method="POST"
               action={contact_form_action}
@@ -196,30 +198,44 @@ const Contact = ({ data }) => {
                   <label htmlFor="website-url">Your Website Url</label>
                   <input type="text" id="website-url" name="url" tabIndex={-1} autoComplete="false" />
                 </div>
-                <label htmlFor="from_name" className="font-bold text-black">Name</label>
-                <input
-                  className="w-full rounded form-input"
-                  name="from_name"
-                  type="text"
-                  placeholder="Your Name"
-                  required
-                />
+                <div className="flex justify-between gap-2">
+                  <div className="flex-col">
+                    <label htmlFor="firstname" className="font-bold text-black">First Name</label>
+                    <input
+                      className="w-full rounded form-input"
+                      name="firstname"
+                      type="text"
+                      placeholder="Your Name"
+                      required
+                    />
+                  </div>
+                  <div className="flex-col">
+                    <label htmlFor="lastname" className="font-bold text-black">Last Name</label>
+                    <input
+                      className="w-full rounded form-input"
+                      name="lastname"
+                      type="text"
+                      placeholder="Last Name"
+                      required
+                    />
+                  </div>
+                </div>
               </div>
               <div className="mb-3">
-                <label htmlFor="from_email" className="font-bold text-black">Email</label>
+                <label htmlFor="email" className="font-bold text-black">Email</label>
                 <input
                   className="w-full rounded form-input"
-                  name="from_email"
+                  name="email"
                   type="email"
                   placeholder="healing@yuzi.com"
                   required
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="is_pregnant" className="font-bold text-black">Are you pregnant?</label>
+                <label htmlFor="is_pregnant_" className="font-bold text-black">Are you pregnant?</label>
                 <input
                   className="mx-2"
-                  name="is_pregnant"
+                  name="is_pregnant_"
                   type="checkbox"
                   onClick={() => setIsPregnant(!isPregnant)}
                 />
@@ -240,7 +256,7 @@ const Contact = ({ data }) => {
                 <label htmlFor="attribution-source" className="font-bold text-black">How Did You Hear About Us?</label>
                 <select
                   className="w-full rounded form-input"
-                  name="attribution_source"
+                  name="how_did_you_hear_about_us_"
                   id="attribution-source"
                 >
                   <option value="" disabled selected>==SELECT AN OPTION==</option>
