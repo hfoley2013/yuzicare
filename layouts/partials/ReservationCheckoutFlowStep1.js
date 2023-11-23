@@ -44,7 +44,7 @@ function ReservationCheckoutFlowStep1({ onSubmit, onClose, formData }) {
       setValue("phone", formData.phone);
       setValue("city", formData.city);
       setValue("state", formData.state);
-      setValue("on_mailing_list", formData.on_mailing_list);
+      setValue("on_mailing_list", formData.on_mailing_list ? "Yes" : "No");
     }
   });
 
