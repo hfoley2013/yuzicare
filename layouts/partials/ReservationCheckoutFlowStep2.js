@@ -24,7 +24,7 @@ const validationSchema = z
         invalid_type_error: "Please select a valid date.",
       })
       .optional(),
-    desiredVisitDates: z
+    desired_visit_dates: z
       .array(
         z
           .coerce
@@ -46,7 +46,7 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
     resolver: zodResolver(validationSchema),
   });
 
-  console.log(watch("desiredVisitDates"));
+  console.log(watch("desired_visit_dates"));
 
   const handleFormSubmit = (data) => {
     onSubmit(data); // Pass the form data to the parent component
@@ -131,14 +131,14 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
             <div className="mb-4">
               <label
                 className="block mb-2 text-sm font-bold text-gray-700"
-                htmlFor="desiredVisitDates"
+                htmlFor="desired_visit_dates"
               >
                 Please select your desired dates of visit.
               </label>
               <p className="text-xs">Please note, at this time we are only able to take reservations for May 2024 or later.</p>
               <Controller
                 control={control}
-                name="desiredVisitDates"
+                name="desired_visit_dates"
                 render={({ field: { onChange, value }, fieldState: { error } }) => (
                   <>
                     <DatePicker
