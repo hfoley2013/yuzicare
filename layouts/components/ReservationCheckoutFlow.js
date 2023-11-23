@@ -19,10 +19,10 @@ const Form = ({ closeReservationCheckout }) => {
       fromEmail: formData.email,
       fromPhone: formData.phone,
       isPregnant: formData.isPregnant ? 'Yes' : 'No',
-      dueDate: formData.dueDate,
-      desiredVisitDates: formData.desiredVisitDates ? `${formData.desiredVisitDates[0]} to ${formData.desiredVisitDates[1]}` : 'No dates provided.',
+      dueDate: formData.dueDate.toLocaleDateString("en-us"),
+      desiredVisitDates: formData.desiredVisitDates ? `${formData.desiredVisitDates[0].toLocaleDateString("en-us")} to ${formData.desiredVisitDates[1].toLocaleDateString("en-us")}` : 'No dates provided.',
       joinedMailingList: formData.joinMailingList ? 'Yes' : 'No',
-      message: `${formData.firstName} ${formData.lastName} completed step 2 of reservation checkout! They are ${formData.isPregnant ? 'currently pregnant' : 'not currently pregnant'}. Their due date is ${formData.dueDate}. They would like to visit from ${formData.desiredVisitDates[0]} to ${formData.desiredVisitDates[1]}. They ${formData.joinMailingList ? 'would' : 'would not'} like to join the mailing list.`,
+      message: `${formData.firstName} ${formData.lastName} completed step 2 of reservation checkout! They are ${formData.isPregnant ? 'currently pregnant' : 'not currently pregnant'}. Their due date is ${formData.dueDate.toLocaleDateString("en-us")}. They would like to visit from ${formData.desiredVisitDates[0].toLocaleDateString("en-us")} to ${formData.desiredVisitDates[1].toLocaleDateString("en-us")}. They ${formData.joinMailingList ? 'would' : 'would not'} like to join the mailing list.`,
     };
 
     const emailTemplate = `

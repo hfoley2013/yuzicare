@@ -5,6 +5,7 @@ import Image from 'next/image';
 import DatePicker from 'react-multi-date-picker';
 import "react-multi-date-picker/styles/colors/teal.css"
 import transition from "react-element-popper/animations/transition"
+import { format } from "date-fns";
 
 
 const today = new Date();
@@ -35,7 +36,7 @@ const validationSchema = z
       .optional(),
   });
 
-function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
+function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev }) {
   const {
     register,
     control,
@@ -137,7 +138,8 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
               <Controller
                 control={control}
                 name="desiredVisitDates"
-                render={({ field: { onChange, value }, fieldState: { error } }) => (
+                render={({ field: { onChange, value }, fieldState: { error } }) =>
+                (
                   <>
                     <DatePicker
                       minDate={minDate}
@@ -176,7 +178,8 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
                       </p>
                     )}
                   </>
-                )}
+                )
+                }
               />
               <p className='mt-2 text-center'>Don’t worry, we know babies show up on their own schedule. We’ll do our best to accommodate an earlier / later start date.</p>
             </div>
