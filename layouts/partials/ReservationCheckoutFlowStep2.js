@@ -40,21 +40,14 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
     register,
     control,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(validationSchema),
   });
 
-  // const desiredVisitDates = watch("desiredVisitDates");
-  // console.log(typeof desiredVisitDates);
-  // console.log("Desired Start:", desiredVisitDates);
-  // console.log("Desired End:", desiredVisitDates);
-
   const handleFormSubmit = (data) => {
-    console.log(data);
-    // onSubmit(data); // Pass the form data to the parent component
-    // document.getElementById("reservation-checkout-form").reset(); // Reset the form
+    onSubmit(data); // Pass the form data to the parent component
+    document.getElementById("reservation-checkout-form-step-2").reset(); // Reset the form
   };
 
   return (
@@ -176,11 +169,6 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
                       animations={[
                         transition({ duration: 800, from: 35 })
                       ]}
-                      renderDate={(date) => date.toLocaleDateString("en-US", {
-                        month: "short",
-                        day: "numeric",
-                        year: "numeric",
-                      })}
                     />
                     {error && (
                       <p className="mt-2 text-xs italic text-red-500">
