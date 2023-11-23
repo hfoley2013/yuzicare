@@ -5,8 +5,6 @@ import Image from 'next/image';
 import DatePicker from 'react-multi-date-picker';
 import "react-multi-date-picker/styles/colors/teal.css"
 import transition from "react-element-popper/animations/transition"
-import { format } from "date-fns";
-
 
 const today = new Date();
 const minDate = new Date("2024-05-02");
