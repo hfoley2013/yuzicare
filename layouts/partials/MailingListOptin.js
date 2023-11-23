@@ -7,8 +7,8 @@ import sendEmail from "@lib/utils/sendEmail";
 
 const validationSchema = z
   .object({
-    firstName: z.string().min(1, { message: "First name is required" }),
-    lastName: z.string().min(1, { message: "Last name is required" }),
+    firstname: z.string().min(1, { message: "First name is required" }),
+    lastname: z.string().min(1, { message: "Last name is required" }),
     email: z.string().min(1, { message: "Email is required" }).email({
       message: "Must be a valid email",
     }),
@@ -23,9 +23,9 @@ function MailingListOptin({ onClose }) {
   const handleMailingListSubmit = async (formData) => {
     try {
       const emailTemplateParams = {
-        from_name: formData.firstName + ' ' + formData.lastName,
+        from_name: formData.firstname + ' ' + formData.lastname,
         from_email: formData.email,
-        message: `${formData.firstName} ${formData.lastName} has joined the mailinglist!`,
+        message: `${formData.firstname} ${formData.lastname} has joined the mailinglist!`,
         subject: 'Welcome to the Yuzi Mailing List!',
       };
 
@@ -177,7 +177,7 @@ function MailingListOptin({ onClose }) {
             X
           </button>
           <h2 className="mb-4 text-2xl font-bold text-center">Access to Exclusive Offers and Community Insights</h2>
-          <form className="space-y-4" onSubmit={handleSubmit((formData) => {
+          <form id="join-mailing-list-form" className="space-y-4" onSubmit={handleSubmit((formData) => {
             handleMailingListSubmit(formData)
               .then(() => {
                 onClose();
@@ -189,19 +189,19 @@ function MailingListOptin({ onClose }) {
             <div>
               <label
                 className="block text-sm font-bold text-gray-700"
-                htmlFor="firstName"
+                htmlFor="firstname"
               >
                 First Name
               </label>
               <input
                 className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded appearance-none focus:outline-none focus:shadow-outline`}
-                id="firstName"
+                id="firstname"
                 type="text"
                 placeholder="First Name"
                 autoComplete="given-name"
-                {...register("firstName")}
+                {...register("firstname")}
               />
-              {errors.firstName && (
+              {errors.firstname && (
                 <p className="text-red-500">{errors.firstName.message}</p>
               )}
             </div>
@@ -209,19 +209,19 @@ function MailingListOptin({ onClose }) {
             <div>
               <label
                 className="block text-sm font-bold text-gray-700"
-                htmlFor="lastName"
+                htmlFor="lastname"
               >
                 Last Name
               </label>
               <input
                 className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded appearance-none focus:outline-none focus:shadow-outline`}
-                id="lastName"
+                id="lastname"
                 type="text"
                 placeholder="Last Name"
-                {...register("lastName")}
+                {...register("lastname")}
               />
-              {errors.lastName && (
-                <p className="text-red-500">{errors.lastName.message}</p>
+              {errors.lastname && (
+                <p className="text-red-500">{errors.lastname.message}</p>
               )}
             </div>
 

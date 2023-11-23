@@ -14,10 +14,10 @@ maxDate.setFullYear(today.getFullYear() + 2);
 
 const validationSchema = z
   .object({
-    isPregnant: z
+    is_pregnant_: z
       .coerce
       .boolean({ message: "We need to know if you are pregnant." }),
-    dueDate: z
+    due_date: z
       .coerce
       .date({
         required_error: "Please enter your due date.",
@@ -40,10 +40,13 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
     register,
     control,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(validationSchema),
   });
+
+  console.log(watch("desiredVisitDates"));
 
   const handleFormSubmit = (data) => {
     onSubmit(data); // Pass the form data to the parent component
@@ -78,28 +81,28 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
             X
           </button>
           <h2 className="mb-4 text-2xl font-bold text-center">Tell us a little more about yourself</h2>
-          <form id="reservation-checkout-form" onSubmit={handleSubmit(handleFormSubmit)}>
+          <form id="reservation-checkout-form-step-2" onSubmit={handleSubmit(handleFormSubmit)}>
             <div className="mb-4">
               <label
                 className="block mb-2 text-sm font-bold text-gray-700"
-                htmlFor="isPregnant"
+                htmlFor="is_pregnant_"
               >
                 Are you currently pregnant?
               </label>
               <select
-                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border ${errors.isPregnant && "border-red-500"
+                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border ${errors.is_pregnant_ && "border-red-500"
                   } rounded appearance-none focus:outline-none focus:shadow-outline`}
-                id="isPregnant"
+                id="is_pregnant_"
                 type="text"
-                {...register("isPregnant")}
+                {...register("is_pregnant_")}
               >
                 <option value="">Select an option</option>
                 <option value="true">Yes</option>
                 <option value="false">No</option>
               </select>
-              {errors.isPregnant && (
+              {errors.is_pregnant_ && (
                 <p className="mt-2 text-xs italic text-red-500">
-                  {errors.isPregnant?.message}
+                  {errors.is_pregnant_?.message}
                 </p>
               )}
             </div>
@@ -107,20 +110,20 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
             <div className="mb-4">
               <label
                 className="block mb-2 text-sm font-bold text-gray-700"
-                htmlFor="dueDate"
+                htmlFor="due_date"
               >
                 When is your due date?
               </label>
               <input
-                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border ${errors.dueDate && "border-red-500"
+                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border ${errors.due_date && "border-red-500"
                   } rounded appearance-none focus:outline-none focus:shadow-outline`}
-                id="dueDate"
+                id="due_date"
                 type="date"
-                {...register("dueDate")}
+                {...register("due_date")}
               />
-              {errors.dueDate && (
+              {errors.due_date && (
                 <p className="mt-2 text-xs italic text-red-500">
-                  {errors.dueDate?.message}
+                  {errors.due_date?.message}
                 </p>
               )}
             </div>
