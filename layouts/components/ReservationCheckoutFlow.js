@@ -15,13 +15,13 @@ const Form = ({ closeReservationCheckout }) => {
 
   async function sendEmailOnStep2Completion() {
     const emailTemplateParams = {
-      from_name: formData.firstName + ' ' + formData.lastName,
-      from_email: formData.email,
-      from_phone: formData.phone,
-      is_pregnant: formData.isPregnant ? 'Yes' : 'No',
-      due_date: formData.dueDate,
-      desired_visit_dates: formData.desiredVisitDates ? `${formData.desiredVisitDates[0]} to ${formData.desiredVisitDates[1]}` : 'No dates provided.',
-      joined_mailing_list: formData.joinMailingList ? 'Yes' : 'No',
+      fromName: formData.firstName + ' ' + formData.lastName,
+      fromEmail: formData.email,
+      fromPhone: formData.phone,
+      isPregnant: formData.isPregnant ? 'Yes' : 'No',
+      dueDate: formData.dueDate,
+      desiredVisitDates: formData.desiredVisitDates ? `${formData.desiredVisitDates[0]} to ${formData.desiredVisitDates[1]}` : 'No dates provided.',
+      joinedMailingList: formData.joinMailingList ? 'Yes' : 'No',
       message: `${formData.firstName} ${formData.lastName} completed step 2 of reservation checkout! They are ${formData.isPregnant ? 'currently pregnant' : 'not currently pregnant'}. Their due date is ${formData.dueDate}. They would like to visit from ${formData.desiredVisitDates[0]} to ${formData.desiredVisitDates[1]}. They ${formData.joinMailingList ? 'would' : 'would not'} like to join the mailing list.`,
     };
 
@@ -31,13 +31,13 @@ const Form = ({ closeReservationCheckout }) => {
             <head>
             </head>
             <body>
-              <p>Name: ${emailTemplateParams.from_name}</p>
-              <p>Email: ${emailTemplateParams.from_email}</p>
-              <p>Phone: ${emailTemplateParams.from_phone}</p>
-              <p>Are they pregnant? ${emailTemplateParams.is_pregnant ? 'Yes' : 'No'}</p>
-              <p>Due Date: ${emailTemplateParams.due_date}</p>
-              <p>Desired Visit Dates: ${emailTemplateParams.desired_visit_dates}</p>
-              <p>Joined Mailing List? ${emailTemplateParams.joined_mailing_list}</p>
+              <p>Name: ${emailTemplateParams.fromName}</p>
+              <p>Email: ${emailTemplateParams.fromEmail}</p>
+              <p>Phone: ${emailTemplateParams.fromPhone}</p>
+              <p>Are they pregnant? ${emailTemplateParams.isPregnant ? 'Yes' : 'No'}</p>
+              <p>Due Date: ${emailTemplateParams.dueDate}</p>
+              <p>Desired Visit Dates: ${emailTemplateParams.desiredVisitDates}</p>
+              <p>Joined Mailing List? ${emailTemplateParams.joinedMailingList}</p>
               <p>Message: ${emailTemplateParams.message}</p>
             </body>
           </html>
@@ -46,7 +46,7 @@ const Form = ({ closeReservationCheckout }) => {
     const messageConfig = {
       sendingEmailAddress: 'contact@yuzicare.com',
       receivingEmailAddress: ['harper@yuzicare.com', 'steph@yuzicare.com', 'michelle@yuzicare.com'],
-      subject: `${emailTemplateParams.from_name} completed Step 2 of Reservation Checkout`,
+      subject: `${emailTemplateParams.fromName} completed Step 2 of Reservation Checkout`,
     };
 
     try {

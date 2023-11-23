@@ -16,16 +16,16 @@ const Contact = ({ data }) => {
   const sendEmails = async (e) => {
     e.preventDefault();
 
-    const enteredFromName = form.current.elements.firstname.value;
+    const enteredFromName = form.current.elements.firstName.value;
     const honeyPotEntry = form.current.elements.url.value;
     const emailTemplateParams = {
-      firstname: form.current.elements.firstname.value,
-      lastname: form.current.elements.lastname.value,
+      firstName: form.current.elements.firstName.value,
+      lastName: form.current.elements.lastName.value,
       email: form.current.elements.email.value,
-      is_pregnant_: form.current.elements.is_pregnant_.value ? 'Yes' : 'No',
-      due_date: form.current.elements.due_date ? form.current.elements.due_date.value : '',
+      isPregnant: form.current.elements.isPregnant.value ? 'Yes' : 'No',
+      dueDate: form.current.elements.dueDate ? form.current.elements.dueDate.value : '',
       message: form.current.elements.message.value,
-      how_did_you_hear_about_us_: form.current.elements.how_did_you_hear_about_us_.value,
+      attributionSource: form.current.elements.attributionSource.value,
       subject: form.current.elements.subject.value,
     };
 
@@ -44,12 +44,12 @@ const Contact = ({ data }) => {
     };
 
     const toYuziEmailTemplate = `
-    <p><strong>From:</strong> ${emailTemplateParams.firstname} ${emailTemplateParams.lastname}:</p>
+    <p><strong>From:</strong> ${emailTemplateParams.firstName} ${emailTemplateParams.lastName}:</p>
 <p><strong>Subject:</strong> ${emailTemplateParams.subject}</p>
 <p style="padding: 12px; border-left: 4px solid #d0d0d0; font-style: italic;">${emailTemplateParams.message}</p>
-<p><strong>Is Pregnant:</strong> ${emailTemplateParams.is_pregnant_}</p>
-<p><strong>Due Date:</strong> ${emailTemplateParams.due_date}</p>
-<p><strong>Attribution Source:</strong> ${emailTemplateParams.how_did_you_hear_about_us_}</p>
+<p><strong>Is Pregnant:</strong> ${emailTemplateParams.isPregnant}</p>
+<p><strong>Due Date:</strong> ${emailTemplateParams.dueDate}</p>
+<p><strong>Attribution Source:</strong> ${emailTemplateParams.attributionSource}</p>
 <p>&nbsp;</p>
 <p>Best wishes,</p>
 <p>&nbsp;</p>
@@ -60,7 +60,7 @@ const Contact = ({ data }) => {
     <div class="wrapper" style="background-color: #edf6f5;">
 <div class="header" style="text-align: center; margin: 10px; padding:10px"><img src="${process.env.NEXT_PUBLIC_BASE_URL}/images/logos/yuzi_lower_logo_600x200.png" alt="Yuzi Care" width="300" height="100"></div>
 <div class="content" style="margin: 0 auto; max-width: 600px; max-height: 200px; padding: 20px; background-color: #ffffff; border-radius: 25px;">
-<p>Dear ${emailTemplateParams.firstname} ${emailTemplateParams.lastname},</p>
+<p>Dear ${emailTemplateParams.firstName} ${emailTemplateParams.lastName},</p>
 <p>Thank you for contacting Yuzi Care.</p>
 <p>We received your message and a staff member will be contacting you shortly.</p>
 <p>If you need anything else in the meantime, please feel free to contact us again at <a href="mailto:contact@yuzicare.com">contact@yuzicare.com</a> or call us directly at <a href="tel:2062226295">(206) 222-6295</a>.</p>
@@ -200,20 +200,20 @@ const Contact = ({ data }) => {
                 </div>
                 <div className="flex justify-between gap-2">
                   <div className="flex-col">
-                    <label htmlFor="firstname" className="font-bold text-black">First Name</label>
+                    <label htmlFor="firstName" className="font-bold text-black">First Name</label>
                     <input
                       className="w-full rounded form-input"
-                      name="firstname"
+                      name="firstName"
                       type="text"
                       placeholder="Your Name"
                       required
                     />
                   </div>
                   <div className="flex-col">
-                    <label htmlFor="lastname" className="font-bold text-black">Last Name</label>
+                    <label htmlFor="lastName" className="font-bold text-black">Last Name</label>
                     <input
                       className="w-full rounded form-input"
-                      name="lastname"
+                      name="lastName"
                       type="text"
                       placeholder="Last Name"
                       required
@@ -232,20 +232,20 @@ const Contact = ({ data }) => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="is_pregnant_" className="font-bold text-black">Are you pregnant?</label>
+                <label htmlFor="isPregnant" className="font-bold text-black">Are you pregnant?</label>
                 <input
                   className="mx-2"
-                  name="is_pregnant_"
+                  name="isPregnant"
                   type="checkbox"
                   onClick={() => setIsPregnant(!isPregnant)}
                 />
               </div>
               {isPregnant &&
                 <div className="mb-3">
-                  <label htmlFor="due_date" className="font-bold text-black">Due Date</label>
+                  <label htmlFor="dueDate" className="font-bold text-black">Due Date</label>
                   <input
                     className="w-full rounded form-input"
-                    name="due_date"
+                    name="dueDate"
                     type="date"
                     placeholder="Due Date"
                     required
@@ -256,7 +256,7 @@ const Contact = ({ data }) => {
                 <label htmlFor="attribution-source" className="font-bold text-black">How Did You Hear About Us?</label>
                 <select
                   className="w-full rounded form-input"
-                  name="how_did_you_hear_about_us_"
+                  name="attributionSource"
                   id="attribution-source"
                 >
                   <option value="" disabled selected>==SELECT AN OPTION==</option>

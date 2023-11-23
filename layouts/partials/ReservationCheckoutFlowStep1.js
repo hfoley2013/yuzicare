@@ -6,8 +6,8 @@ import { z } from "zod";
 
 const validationSchema = z
   .object({
-    firstname: z.string().min(1, { message: "First name is required" }),
-    lastname: z.string().min(1, { message: "Last name is required" }),
+    firstName: z.string().min(1, { message: "First name is required" }),
+    lastName: z.string().min(1, { message: "Last name is required" }),
     email: z.string().min(1, { message: "Email is required" }).email({
       message: "Must be a valid email",
     }),
@@ -20,7 +20,7 @@ const validationSchema = z
     state: z
       .string()
       .min(1, { message: "Please enter your current state" }),
-    on_mailing_list: z
+    joinedMailingList: z
       .boolean()
       .default(true)
       .optional()
@@ -37,14 +37,14 @@ function ReservationCheckoutFlowStep1({ onSubmit, onClose, formData }) {
   });
 
   useEffect(() => {
-    if (formData.firstname) {
-      setValue("firstname", formData.firstname);
-      setValue("lastname", formData.lastname);
+    if (formData.firstName) {
+      setValue("firstName", formData.firstName);
+      setValue("lastName", formData.lastName);
       setValue("email", formData.email);
       setValue("phone", formData.phone);
       setValue("city", formData.city);
       setValue("state", formData.state);
-      setValue("on_mailing_list", formData.on_mailing_list ? "Yes" : "No");
+      setValue("joinedMailingList", formData.joinedMailingList ? "Yes" : "No");
     }
   });
 
@@ -83,21 +83,21 @@ function ReservationCheckoutFlowStep1({ onSubmit, onClose, formData }) {
             <div>
               <label
                 className="block text-sm font-bold text-gray-700"
-                htmlFor="firstname"
+                htmlFor="firstName"
               >
                 First Name
               </label>
               <input
-                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border ${errors.firstname && "border-red-500"} rounded appearance-none focus:outline-none focus:shadow-outline`}
-                id="firstname"
+                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border ${errors.firstName && "border-red-500"} rounded appearance-none focus:outline-none focus:shadow-outline`}
+                id="firstName"
                 type="text"
                 placeholder="First Name"
                 autoComplete="given-name"
-                {...register("firstname")}
+                {...register("firstName")}
               />
-              {errors.firstname && (
+              {errors.firstName && (
                 <p className="mt-2 text-xs italic text-red-500">
-                  {errors.firstname?.message}
+                  {errors.firstName?.message}
                 </p>
               )}
             </div>
@@ -105,20 +105,20 @@ function ReservationCheckoutFlowStep1({ onSubmit, onClose, formData }) {
             <div>
               <label
                 className="block text-sm font-bold text-gray-700"
-                htmlFor="lastname"
+                htmlFor="lastName"
               >
                 Last Name
               </label>
               <input
-                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border ${errors.lastname && "border-red-500"} rounded appearance-none focus:outline-none focus:shadow-outline`}
-                id="lastname"
+                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border ${errors.lastName && "border-red-500"} rounded appearance-none focus:outline-none focus:shadow-outline`}
+                id="lastName"
                 type="text"
                 placeholder="Last Name"
-                {...register("lastname")}
+                {...register("lastName")}
               />
-              {errors.lastname && (
+              {errors.lastName && (
                 <p className="mt-2 text-xs italic text-red-500">
-                  {errors.lastname?.message}
+                  {errors.lastName?.message}
                 </p>
               )}
             </div>
@@ -206,10 +206,10 @@ function ReservationCheckoutFlowStep1({ onSubmit, onClose, formData }) {
             </div>
 
             <div className="mb-4">
-              <input type="checkbox" id="on_mailing_list" checked {...register("on_mailing_list")} />
+              <input type="checkbox" id="joinedMailingList" checked {...register("joinedMailingList")} />
               <label
-                htmlFor="on_mailing_list"
-                className={`ml-2 text-sm font-bold ${errors.on_mailing_list ? "text-red-500" : "text-gray-700"}`}
+                htmlFor="joinedMailingList"
+                className={`ml-2 text-sm font-bold ${errors.joinedMailingList ? "text-red-500" : "text-gray-700"}`}
               >
                 Please send me updates and information about the program.
               </label>
