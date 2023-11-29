@@ -36,8 +36,11 @@ faqs:
   answer:  Everyone’s postpartum journey can look a little different. As such, the Yuzi Retreat is not a one size fits all experience. You are welcome to take part in daily programming focused on postpartum wellness, infant care, and connecting with other parents. On-site specialists are here to support your recovery and help you learn or refresh on newborn care in a one-on-one setting. We would be happy to assist in coordinating spa appointments during your stay. Nutritious meals are provided and you’ll have access to our private mother’s lounge for snacks and socializing.
 
 - title: I'd love to stay with Yuzi, but it's out of my budget. What can I do?
-  answer:  We believe every mother deserves high quality postpartum care. We are committed to making our services more accessible and are exploring several avenues, such as insurance reimbursement, employer partnerships, and a sponsor a mom program to reduce individual financial expenditure.  Please stay tuned as we launch additional features.  
+  answer:  We believe every mother deserves high quality postpartum care. We are committed to making our services more accessible and are exploring several avenues, such as insurance reimbursement, employer partnerships, and a sponsor a mom program to reduce individual financial expenditure.  Please stay tuned as we launch additional features.
+
+- title: What is Yuzi's "Sponsor a Mom" Program?
+  answer: Yuzi's vision is to democratize postnatal care for all families. We recognize that not everyone has the opportunity to attend the Yuzi retreat. That is why we are proud to introduce our gifting program, Sponsor a Mom. This program provides an opportunity to sponsor a mother to experience the unparalleled luxury that is Yuzi. Your support isn't just financial—it's a lifeline, a gesture of compassion that echoes through generations. Your generosity creates a ripple effect of positive change, offering a lifeline to mothers who need it most. To make a donation you can <a style='color:#0aa8a7;' href='https://donate.stripe.com/fZe3cP3MV8vT1qw8wC'>visit our Sponsor a Mom page</a> and we will match your sponsorship.
 
 - title: I have more questions. How can I learn more?
-  answer: Please reach out to our care team at <a href='mailto:hi@yuzicare.com'>hi@yuzicare.com.</a> We would love to hear from you.
+  answer: Please reach out to our care team at <a style='color:#0aa8a7;' href='mailto:hi@yuzicare.com'>hi@yuzicare.com.</a> We would love to hear from you.
 ---
