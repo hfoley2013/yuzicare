@@ -14,17 +14,17 @@ maxDate.setFullYear(today.getFullYear() + 2);
 
 const validationSchema = z
   .object({
-    is_pregnant_: z
+    isPregnant: z
       .coerce
       .boolean({ message: "We need to know if you are pregnant." }),
-    due_date: z
+    dueDate: z
       .coerce
       .date({
         required_error: "Please enter your due date.",
         invalid_type_error: "Please select a valid date.",
       })
       .optional(),
-    desired_visit_dates: z
+    desiredVisitDates: z
       .array(
         z
           .coerce
@@ -46,11 +46,11 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
     resolver: zodResolver(validationSchema),
   });
 
-  console.log(watch("desired_visit_dates"));
+  console.log(watch("desiredVisitDates"));
 
   const handleFormSubmit = (data) => {
+    console.log(data);
     onSubmit(data); // Pass the form data to the parent component
-    document.getElementById("reservation-checkout-form").reset(); // Reset the form
   };
 
   return (
@@ -85,24 +85,24 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
             <div className="mb-4">
               <label
                 className="block mb-2 text-sm font-bold text-gray-700"
-                htmlFor="is_pregnant_"
+                htmlFor="isPregnant"
               >
                 Are you currently pregnant?
               </label>
               <select
-                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border ${errors.is_pregnant_ && "border-red-500"
+                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border ${errors.isPregnant && "border-red-500"
                   } rounded appearance-none focus:outline-none focus:shadow-outline`}
-                id="is_pregnant_"
+                id="isPregnant"
                 type="text"
-                {...register("is_pregnant_")}
+                {...register("isPregnant")}
               >
                 <option value="">Select an option</option>
                 <option value="true">Yes</option>
                 <option value="false">No</option>
               </select>
-              {errors.is_pregnant_ && (
+              {errors.isPregnant && (
                 <p className="mt-2 text-xs italic text-red-500">
-                  {errors.is_pregnant_?.message}
+                  {errors.isPregnant?.message}
                 </p>
               )}
             </div>
@@ -110,20 +110,20 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
             <div className="mb-4">
               <label
                 className="block mb-2 text-sm font-bold text-gray-700"
-                htmlFor="due_date"
+                htmlFor="dueDate"
               >
                 When is your due date?
               </label>
               <input
-                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border ${errors.due_date && "border-red-500"
+                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border ${errors.dueDate && "border-red-500"
                   } rounded appearance-none focus:outline-none focus:shadow-outline`}
-                id="due_date"
+                id="dueDate"
                 type="date"
-                {...register("due_date")}
+                {...register("dueDate")}
               />
-              {errors.due_date && (
+              {errors.dueDate && (
                 <p className="mt-2 text-xs italic text-red-500">
-                  {errors.due_date?.message}
+                  {errors.dueDate?.message}
                 </p>
               )}
             </div>
@@ -131,14 +131,14 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
             <div className="mb-4">
               <label
                 className="block mb-2 text-sm font-bold text-gray-700"
-                htmlFor="desired_visit_dates"
+                htmlFor="desiredVisitDates"
               >
                 Please select your desired dates of visit.
               </label>
               <p className="text-xs">Please note, at this time we are only able to take reservations for May 2024 or later.</p>
               <Controller
                 control={control}
-                name="desired_visit_dates"
+                name="desiredVisitDates"
                 render={({ field: { onChange, value }, fieldState: { error } }) => (
                   <>
                     <DatePicker

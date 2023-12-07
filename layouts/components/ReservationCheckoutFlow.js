@@ -10,10 +10,12 @@ const Form = ({ closeReservationCheckout }) => {
     // passing the client secret obtained from the server
     clientSecret: "{{CLIENT_SECRET}}",
   };
+
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({});
 
-  async function sendEmailOnStep2Completion() {
+  async function sendEmailOnStep2Completion(formData) {
+
     const emailTemplateParams = {
       from_name: formData.firstName + ' ' + formData.lastName,
       from_email: formData.email,
@@ -21,8 +23,8 @@ const Form = ({ closeReservationCheckout }) => {
       is_pregnant: formData.isPregnant ? 'Yes' : 'No',
       due_date: formData.dueDate,
       desired_visit_dates: formData.desiredVisitDates ? `${formData.desiredVisitDates[0]} to ${formData.desiredVisitDates[1]}` : 'No dates provided.',
-      joined_mailing_list: formData.joinMailingList ? 'Yes' : 'No',
-      message: `${formData.firstName} ${formData.lastName} completed step 2 of reservation checkout! They are ${formData.isPregnant ? 'currently pregnant' : 'not currently pregnant'}. Their due date is ${formData.dueDate}. They would like to visit from ${formData.desiredVisitDates[0]} to ${formData.desiredVisitDates[1]}. They ${formData.joinMailingList ? 'would' : 'would not'} like to join the mailing list.`,
+      joined_mailing_list: formData.joinedMailingList ? 'Yes' : 'No',
+      message: `${formData.firstName} ${formData.lastName} completed step 2 of reservation checkout! They are ${formData.isPregnant ? 'currently pregnant' : 'not currently pregnant'}. Their due date is ${formData.dueDate}. They would like to visit from ${formData.desiredVisitDates[0]} to ${formData.desiredVisitDates[1]}. They ${formData.joinedMailingList ? 'would' : 'would not'} like to join the mailing list.`,
     };
 
     const emailTemplate = `
@@ -60,14 +62,13 @@ const Form = ({ closeReservationCheckout }) => {
   useEffect(() => {
 
     if (step === 3) {
-      sendEmailOnStep2Completion();
+      sendEmailOnStep2Completion(formData);
     }
   });
 
 
   const handleNextStep = (data) => {
     setFormData({ ...formData, ...data });
-    console.log(formData);
     setStep(step + 1);
   };
 
