@@ -24,6 +24,7 @@ const App = ({ Component, pageProps }) => {
   const tagManagerArgs = {
     gtmId: config.params.tag_manager_id,
   };
+
   useEffect(() => {
     setTimeout(() => {
       process.env.NODE_ENV === "production" &&
@@ -36,6 +37,7 @@ const App = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
+
         {/* google font css */}
         <link
           rel="preconnect"
@@ -54,6 +56,20 @@ const App = ({ Component, pageProps }) => {
         />
       </Head>
       <Component {...pageProps} />
+
+      {/* microsoft-clarity */}
+      <Script
+        id="microsoft-clarity"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+          (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", '${process.env.NEXT_PUBLIC_CLARITY_KEY}');`,
+        }}
+      />
     </>
   );
 };
