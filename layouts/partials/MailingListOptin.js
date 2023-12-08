@@ -31,7 +31,7 @@ function MailingListOptin({ onClose }) {
 
       const toYuziMessageConfig = {
         sendingEmailAddress: "contact@yuzicare.com",
-        receivingEmailAddress: ["steph@yuzicare.com", "harper@yuzicare.com", "michelle@yuzicare.com"],
+        receivingEmailAddress: "contact@yuzicare.com",
         replyTo: emailTemplateParams.from_email,
         subject: "New Mailing List Subscriber",
       };
