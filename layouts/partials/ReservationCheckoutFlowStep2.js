@@ -17,13 +17,13 @@ const validationSchema = z
     is_pregnant_: z
       .coerce
       .boolean({ message: "We need to know if you are pregnant." }),
-    due_date: z
-      .coerce
-      .date({
-        required_error: "Please enter your due date.",
-        invalid_type_error: "Please select a valid date.",
-      })
-      .optional(),
+    // due_date: z
+    //   .coerce
+    //   .date({
+    //     required_error: "Please enter your due date.",
+    //     invalid_type_error: "Please select a valid date.",
+    //   })
+    //   .optional(),
     desired_visit_date: z
       .array(
         z
@@ -111,7 +111,7 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
               )}
             </div>
 
-            <div className="mb-4">
+            {/* <div className="mb-4">
               <label
                 className="block mb-2 text-sm font-bold text-gray-700"
                 htmlFor="due_date"
@@ -130,7 +130,7 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
                   {errors.due_date?.message}
                 </p>
               )}
-            </div>
+            </div> */}
 
             <div className="mb-4">
               <label
