@@ -6,25 +6,20 @@ import sendEmail from "@lib/utils/sendEmail.js";
 
 const Form = ({ closeReservationCheckout }) => {
 
-  const options = {
-    // passing the client secret obtained from the server
-    clientSecret: "{{CLIENT_SECRET}}",
-  };
-
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({});
 
   async function sendEmailOnStep2Completion(formData) {
 
     const emailTemplateParams = {
-      from_name: formData.firstName + ' ' + formData.lastName,
+      from_name: formData.firstname + ' ' + formData.lastname,
       from_email: formData.email,
       from_phone: formData.phone,
-      is_pregnant: formData.isPregnant ? 'Yes' : 'No',
-      due_date: formData.dueDate,
-      desired_visit_dates: formData.desiredVisitDates ? `${formData.desiredVisitDates[0]} to ${formData.desiredVisitDates[1]}` : 'No dates provided.',
-      joined_mailing_list: formData.joinedMailingList ? 'Yes' : 'No',
-      message: `${formData.firstName} ${formData.lastName} completed step 2 of reservation checkout! They are ${formData.isPregnant ? 'currently pregnant' : 'not currently pregnant'}. Their due date is ${formData.dueDate}. They would like to visit from ${formData.desiredVisitDates[0]} to ${formData.desiredVisitDates[1]}. They ${formData.joinedMailingList ? 'would' : 'would not'} like to join the mailing list.`,
+      is_pregnant: formData.is_pregnant_ ? 'Yes' : 'No',
+      due_date: formData.due_date.toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' }),
+      desired_visit_dates: formData.desired_visit_date ? `${formData.desired_visit_date[0].toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' })} to ${formData.desired_visit_date[1].toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' })}` : 'No dates provided.',
+      joined_mailing_list: formData.on_mailing_list ? 'Yes' : 'No',
+      message: `${formData.firstname} ${formData.lastname} completed step 2 of reservation checkout! They are ${formData.is_pregnant_ ? 'currently pregnant' : 'not currently pregnant'}. Their due date is ${formData.due_date.toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' })}. They would like to visit from ${formData.desired_visit_date[0].toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' })} to ${formData.desired_visit_date[1].toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' })}. They ${formData.on_mailing_list ? 'would' : 'would not'} like to join the mailing list.`,
     };
 
     const emailTemplate = `
