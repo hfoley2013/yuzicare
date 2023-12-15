@@ -46,11 +46,13 @@ module.exports = {
         text: theme.colors.default.text_color.default,
         light: theme.colors.default.text_color.light,
         dark: theme.colors.default.text_color.dark,
+        title: theme.colors.default.text_color.title,
         primary: theme.colors.default.theme_color.primary,
         secondary: theme.colors.default.theme_color.secondary,
         body: theme.colors.default.theme_color.body,
         border: theme.colors.default.theme_color.border,
         "theme-light": theme.colors.default.theme_color.theme_light,
+        white: "#FFFFF0",
       },
       fontSize: {
         base: font_base + "px",
@@ -77,7 +79,7 @@ module.exports = {
     require("@tailwindcss/typography"),
     require("@tailwindcss/forms"),
     require("tailwind-bootstrap-grid")({ generateContainer: false }),
-      require("tailwindcss-animate")
-],
+    require("tailwindcss-animate")
+  ],
   // important: true,
 };

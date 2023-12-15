@@ -17,13 +17,13 @@ const validationSchema = z
     is_pregnant_: z
       .coerce
       .boolean({ message: "We need to know if you are pregnant." }),
-    // due_date: z
-    //   .coerce
-    //   .date({
-    //     required_error: "Please enter your due date.",
-    //     invalid_type_error: "Please select a valid date.",
-    //   })
-    //   .optional(),
+    due_date: z
+      .coerce
+      .date({
+        required_error: "Please enter your due date.",
+        invalid_type_error: "Please select a valid date.",
+      })
+      .optional(),
     desired_visit_date: z
       .array(
         z
@@ -61,24 +61,24 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
     <section className="fixed inset-0 z-50 items-center justify-center p-4 mt-4 overflow-y-auto md:flex">
 
       <div className='flex flex-col md:flex-row'>
-        <div className='flex-grow rounded-md bg-secondary'>
+        <div className='flex-grow rounded-md bg-primary'>
           <Image
-            src="/images/yuzi_ring_logo.svg"
+            src="/images/logos/yuzi-ring-logo.png"
             alt="Logo"
-            width={300}
-            height={300}
-            className='hidden object-contain mt-5 md:block'
+            width={500}
+            height={500}
+            className='hidden object-contain p-4 mt-5 md:block'
           />
           <div className='py-5'>
-            <h3 className="text-center text-dark">Step 2</h3>
-            <hr className='w-[80%] mx-auto border-dark'></hr>
-            <h4 className="text-center text-dark">Your Visit</h4>
+            <h3 className="text-center text-theme-light">Step 2</h3>
+            <hr className='w-[80%] mx-auto border-theme-light'></hr>
+            <h4 className="text-center text-theme-light">Your Visit</h4>
           </div>
         </div>
-        <div className="relative w-full max-w-screen-sm p-4 mx-auto bg-white rounded-lg shadow-lg">
+        <div className="relative w-full max-w-screen-sm p-4 mx-auto rounded-lg shadow-lg bg-theme-light">
           <button
             onClick={onClose}
-            className="absolute top-0 right-0 m-4 text-gray-600 hover:text-gray-800 focus:outline-none"
+            className="absolute top-0 right-0 m-4 text-dark hover:text-gray-800 focus:outline-none"
             type="button"
             id="abort-checkout-step-2"
           >
@@ -88,13 +88,13 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
           <form id="reservation-checkout-form-step-2" onSubmit={handleSubmit(handleFormSubmit)}>
             <div className="mb-4">
               <label
-                className="block mb-2 text-sm font-bold text-gray-700"
+                className="block mb-2 text-sm font-bold text-dark"
                 htmlFor="is_pregnant_"
               >
                 Are you currently pregnant?
               </label>
               <select
-                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border ${errors.is_pregnant_ && "border-red-500"
+                className={`w-full px-3 py-2 text-sm leading-tight text-dark border ${errors.is_pregnant_ && "border-red-500"
                   } rounded appearance-none focus:outline-none focus:shadow-outline`}
                 id="is_pregnant_"
                 type="text"
@@ -111,15 +111,15 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
               )}
             </div>
 
-            {/* <div className="mb-4">
+            <div className="mb-4">
               <label
-                className="block mb-2 text-sm font-bold text-gray-700"
+                className="block mb-2 text-sm font-bold text-dark"
                 htmlFor="due_date"
               >
                 When is your due date?
               </label>
               <input
-                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border ${errors.due_date && "border-red-500"
+                className={`w-full px-3 py-2 text-sm leading-tight text-dark border ${errors.due_date && "border-red-500"
                   } rounded appearance-none focus:outline-none focus:shadow-outline`}
                 id="due_date"
                 type="date"
@@ -130,11 +130,11 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
                   {errors.due_date?.message}
                 </p>
               )}
-            </div> */}
+            </div>
 
             <div className="mb-4">
               <label
-                className="block mb-2 text-sm font-bold text-gray-700"
+                className="block mb-2 text-sm font-bold text-dark"
                 htmlFor="desired_visit_date"
               >
                 Please select your desired dates of visit.
@@ -192,14 +192,14 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
 
             <div className="flex justify-between text-center">
               <button
-                className="w-[40%] px-4 py-2 font-bold text-white rounded-full bg-blue-500/20 hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+                className="w-[40%] px-4 py-2 font-bold text-white bg-primary/20 rounded-full  hover:bg-primary focus:outline-none focus:shadow-outline"
                 type="button"
                 onClick={onPrev}
               >
                 Previous
               </button>
               <button
-                className="w-[40%] px-4 py-2 font-bold text-white bg-blue-700 rounded-full hover:bg-blue-500 focus:outline-none focus:shadow-outline"
+                className="w-[40%] px-4 py-2 font-bold text-white bg-primary rounded-full hover:bg-primary/50 focus:outline-none focus:shadow-outline"
                 type="submit"
                 id="complete-checkout-step-2-button"
               >

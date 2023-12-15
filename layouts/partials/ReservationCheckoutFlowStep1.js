@@ -55,24 +55,24 @@ function ReservationCheckoutFlowStep1({ onSubmit, onClose, formData }) {
   return (
     <section className="fixed inset-0 z-50 items-center justify-center p-4 mt-4 overflow-y-auto md:flex">
       <div className='flex flex-col md:flex-row'>
-        <div className='flex-grow rounded-md bg-secondary'>
+        <div className='flex-grow rounded-md bg-primary'>
           <Image
-            src="/images/yuzi_ring_logo.svg"
+            src="/images/logos/yuzi-ring-logo.png"
             alt="Logo"
             width={500}
             height={500}
-            className='hidden object-contain mt-5 md:block'
+            className='hidden object-contain p-4 mt-5 rounded-md md:block'
           />
           <div className='py-5'>
-            <h3 className="text-center text-dark">Step 1</h3>
-            <hr className='w-[80%] mx-auto border-dark'></hr>
-            <h4 className="text-center text-dark">Basic Information</h4>
+            <h3 className="text-center text-theme-light">Step 1</h3>
+            <hr className='w-[80%] mx-auto border-theme-light'></hr>
+            <h4 className="text-center text-theme-light">Basic Information</h4>
           </div>
         </div>
-        <div className="relative w-full max-w-screen-sm p-4 mx-auto bg-white rounded-lg shadow-lg">
+        <div className="relative w-full max-w-screen-sm p-4 mx-auto rounded-lg shadow-lg bg-theme-light">
           <button
             onClick={onClose}
-            className="absolute top-0 right-0 m-4 text-gray-600 hover:text-gray-800 focus:outline-none"
+            className="absolute top-0 right-0 m-4 text-dark hover:text-gray-800 focus:outline-none"
             type="button"
             id="abort-checkout-step-1"
           >
@@ -82,13 +82,13 @@ function ReservationCheckoutFlowStep1({ onSubmit, onClose, formData }) {
           <form id="reservation-checkout-form-step-1" className="space-y-4" onSubmit={handleSubmit(handleFormSubmit)}>
             <div>
               <label
-                className="block text-sm font-bold text-gray-700"
+                className="block text-sm font-bold text-dark"
                 htmlFor="firstname"
               >
                 First Name
               </label>
               <input
-                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border ${errors.firstname && "border-red-500"} rounded appearance-none focus:outline-none focus:shadow-outline`}
+                className={`w-full px-3 py-2 text-sm leading-tight text-dark border ${errors.firstname && "border-red-500"} rounded appearance-none focus:outline-none focus:shadow-outline`}
                 id="firstname"
                 type="text"
                 placeholder="First Name"
@@ -104,13 +104,13 @@ function ReservationCheckoutFlowStep1({ onSubmit, onClose, formData }) {
 
             <div>
               <label
-                className="block text-sm font-bold text-gray-700"
+                className="block text-sm font-bold text-dark"
                 htmlFor="lastname"
               >
                 Last Name
               </label>
               <input
-                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border ${errors.lastname && "border-red-500"} rounded appearance-none focus:outline-none focus:shadow-outline`}
+                className={`w-full px-3 py-2 text-sm leading-tight text-dark border ${errors.lastname && "border-red-500"} rounded appearance-none focus:outline-none focus:shadow-outline`}
                 id="lastname"
                 type="text"
                 placeholder="Last Name"
@@ -125,13 +125,13 @@ function ReservationCheckoutFlowStep1({ onSubmit, onClose, formData }) {
 
             <div>
               <label
-                className="block text-sm font-bold text-gray-700"
+                className="block text-sm font-bold text-dark"
                 htmlFor="email"
               >
                 Email
               </label>
               <input
-                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border ${errors.email && "border-red-500"} rounded appearance-none focus:outline-none focus:shadow-outline`}
+                className={`w-full px-3 py-2 text-sm leading-tight text-dark border ${errors.email && "border-red-500"} rounded appearance-none focus:outline-none focus:shadow-outline`}
                 id="email"
                 type="email"
                 placeholder="Email"
@@ -146,13 +146,13 @@ function ReservationCheckoutFlowStep1({ onSubmit, onClose, formData }) {
 
             <div>
               <label
-                className="block text-sm font-bold text-gray-700"
+                className="block text-sm font-bold text-dark"
                 htmlFor="phone"
               >
                 Phone Number
               </label>
               <input
-                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border ${errors.phone && "border-red-500"} rounded appearance-none focus:outline-none focus:shadow-outline`}
+                className={`w-full px-3 py-2 text-sm leading-tight text-dark border ${errors.phone && "border-red-500"} rounded appearance-none focus:outline-none focus:shadow-outline`}
                 id="phone"
                 type="tel"
                 placeholder="425 555 5555"
@@ -167,13 +167,13 @@ function ReservationCheckoutFlowStep1({ onSubmit, onClose, formData }) {
 
             <div>
               <label
-                className="block text-sm font-bold text-gray-700"
+                className="block text-sm font-bold text-dark"
                 htmlFor="city"
               >
                 City
               </label>
               <input
-                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border ${errors.city && "border-red-500"} rounded appearance-none focus:outline-none focus:shadow-outline`}
+                className={`w-full px-3 py-2 text-sm leading-tight text-dark border ${errors.city && "border-red-500"} rounded appearance-none focus:outline-none focus:shadow-outline`}
                 id="city"
                 type="text"
                 {...register("city")}
@@ -187,13 +187,13 @@ function ReservationCheckoutFlowStep1({ onSubmit, onClose, formData }) {
 
             <div>
               <label
-                className="block text-sm font-bold text-gray-700"
+                className="block text-sm font-bold text-dark"
                 htmlFor="state"
               >
                 State
               </label>
               <input
-                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border ${errors.state && "border-red-500"} rounded appearance-none focus:outline-none focus:shadow-outline`}
+                className={`w-full px-3 py-2 text-sm leading-tight text-dark border ${errors.state && "border-red-500"} rounded appearance-none focus:outline-none focus:shadow-outline`}
                 id="state"
                 type="text"
                 {...register("state")}
@@ -209,7 +209,7 @@ function ReservationCheckoutFlowStep1({ onSubmit, onClose, formData }) {
               <input type="checkbox" id="on_mailing_list" checked {...register("on_mailing_list")} />
               <label
                 htmlFor="on_mailing_list"
-                className={`ml-2 text-sm font-bold ${errors.on_mailing_list ? "text-red-500" : "text-gray-700"}`}
+                className={`ml-2 text-sm font-bold ${errors.on_mailing_list ? "text-red-500" : "text-dark"}`}
               >
                 Please send me updates and information about the program.
               </label>
@@ -217,7 +217,7 @@ function ReservationCheckoutFlowStep1({ onSubmit, onClose, formData }) {
 
             <div className="w-full text-center">
               <button
-                className="w-full px-4 py-2 text-white bg-blue-700 rounded-full hover:bg-blue-500 focus:outline-none focus:shadow-outline"
+                className="w-full px-4 py-2 text-white rounded-full bg-primary hover:bg-primary/50 focus:outline-none focus:shadow-outline"
                 type="submit"
                 id="complete-checkout-step-1-button"
               >

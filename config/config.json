@@ -2,10 +2,10 @@
   "site": {
     "title": "Yuzi Postpartum Healing Center",
     "base_url": "https://yuzicare.com",
-    "favicon": "/images/favicon.png",
-    "logo": "/images/logo.png",
-    "logo_width": "200",
-    "logo_height": "48",
+    "favicon": "/favicon.png",
+    "logo": "/images/logos/yuzi-full-logo-inverted.svg",
+    "logo_width": "150",
+    "logo_height": "85",
     "logo_text": "Yuzi Care, Inc."
   },
 
@@ -30,7 +30,7 @@
 
   "metadata": {
     "meta_author": "Harper Foley",
-    "meta_image": "/images/favicon.png",
+    "meta_image": "/images/logos/yuzi-full-logo.png",
     "meta_description": "Yuzi: Your Sanctuary for Postnatal Healing, Renewal, and Connection. Join us on the transformative journey of early motherhood. Learn more on our website."
   }
 }

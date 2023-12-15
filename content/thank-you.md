@@ -12,6 +12,6 @@ canonical: "https://yuzicare.com/thank-you"
   <p className="mx-auto max-w-[550px]">
     You have reserved your spot at the *Yuzi Retreat* and should receive an email confirmation shortly.
   </p>
-  <a href="/"><img src="images/checkout-image.png" alt="A mother holds her newborn baby closing and looks at it loveingly." className="mx-auto w-80 h-80 rounded-lg" loading="lazy"/></a>
+  <a href="/"><img src="images/thank-you/thank-you.png" alt="A mother holds her newborn baby closing and looks at it loveingly." className="mx-auto w-80 h-80 rounded-lg" loading="lazy"/></a>
   <p className="leading-1">We recommend you checkout out our <a href="/faq" className="text-primary underline font-bold hover:text-primary/50">FAQs</a> or read our <a href="/blogs" className="text-primary underline font-bold hover:text-primary/50">Blog</a> to prepare for your visit.</p>
 </div>

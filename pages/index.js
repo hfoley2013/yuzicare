@@ -73,7 +73,7 @@ const Home = ({ frontmatter }) => {
         <div className="container">
           <div className="text-center row">
             <div className="mx-auto lg:col-10">
-              <h1 className="text-2xl font-bold font-primary md:text-4xl">{banner.title}</h1>
+              <h1 className="text-2xl font-bold font-primary md:text-4xl text-title">{banner.title}</h1>
               <p className="mt-4 italic text-md md:text-2xl font-secondary">{banner.content}</p>
               <p className="mt-4 text-md md:text-2xl">{banner.content_2}</p>
               {banner.button.enable && (

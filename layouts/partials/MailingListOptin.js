@@ -157,22 +157,22 @@ function MailingListOptin({ onClose }) {
   return (
     <section className="fixed inset-0 z-50 items-center justify-center p-4 mt-4 overflow-y-auto md:flex">
       <div className='flex flex-col md:flex-row'>
-        <div className='flex-grow rounded-md bg-secondary'>
+        <div className='flex-grow rounded-md bg-primary'>
           <Image
-            src="/images/yuzi_ring_logo.svg"
+            src="/images/logos/yuzi-ring-logo.png"
             alt="Logo"
             width={500}
             height={500}
-            className='hidden object-contain mt-5 md:block'
+            className='hidden object-contain p-4 mt-5 rounded-md md:block'
           />
           <div className='py-5 my-auto'>
-            <h3 className="text-center text-dark">Join the Mailing List</h3>
+            <h3 className="text-center text-theme-light">Join the Mailing List</h3>
           </div>
         </div>
         <div className="relative w-full max-w-screen-sm p-4 mx-auto bg-white rounded-lg shadow-lg">
           <button
             onClick={onClose}
-            className="absolute top-0 right-0 mr-4 text-gray-600 hover:text-gray-800 focus:outline-none"
+            className="absolute top-0 right-0 mr-4 text-dark hover:text-gray-800 focus:outline-none"
           >
             X
           </button>
@@ -188,13 +188,13 @@ function MailingListOptin({ onClose }) {
           })}>
             <div>
               <label
-                className="block text-sm font-bold text-gray-700"
+                className="block text-sm font-bold text-dark"
                 htmlFor="firstname"
               >
                 First Name
               </label>
               <input
-                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded appearance-none focus:outline-none focus:shadow-outline`}
+                className={`w-full px-3 py-2 text-sm leading-tight text-dark border rounded appearance-none focus:outline-none focus:shadow-outline`}
                 id="firstname"
                 type="text"
                 placeholder="First Name"
@@ -208,13 +208,13 @@ function MailingListOptin({ onClose }) {
 
             <div>
               <label
-                className="block text-sm font-bold text-gray-700"
+                className="block text-sm font-bold text-dark"
                 htmlFor="lastname"
               >
                 Last Name
               </label>
               <input
-                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded appearance-none focus:outline-none focus:shadow-outline`}
+                className={`w-full px-3 py-2 text-sm leading-tight text-dark border rounded appearance-none focus:outline-none focus:shadow-outline`}
                 id="lastname"
                 type="text"
                 placeholder="Last Name"
@@ -227,13 +227,13 @@ function MailingListOptin({ onClose }) {
 
             <div>
               <label
-                className="block text-sm font-bold text-gray-700"
+                className="block text-sm font-bold text-dark"
                 htmlFor="email"
               >
                 Email
               </label>
               <input
-                className={`w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded appearance-none focus:outline-none focus:shadow-outline`}
+                className={`w-full px-3 py-2 text-sm leading-tight text-dark border rounded appearance-none focus:outline-none focus:shadow-outline`}
                 id="email"
                 type="email"
                 placeholder="Email"
@@ -246,7 +246,7 @@ function MailingListOptin({ onClose }) {
 
             <div className="mb-4">
               <p
-                className={`ml-2 text-sm text-center text-gray-700`}
+                className={`ml-2 text-sm text-center text-dark`}
               >
                 By signing up you agree to receive emails from Yuzi.
               </p>
@@ -254,7 +254,7 @@ function MailingListOptin({ onClose }) {
 
             <div className="w-full text-center">
               <button
-                className="w-full px-4 py-2 text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+                className="w-full px-4 py-2 text-white rounded-full bg-primary hover:bg-primary/50 focus:outline-none focus:shadow-outline"
                 type="submit"
                 id="join-mailing-list-button"
               >
