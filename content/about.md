@@ -31,7 +31,7 @@ Warmly,
 
 <p className="my-0 text-xl">Steph Foley</p>
 <p className="my-0 italic text-lg">Founder &amp; CEO</p>
-<a href="/"><img src="/images/about_logo.png" alt="Yuzi Care, Inc. logo" className="mt-1 w-[150px]"/></a>
+<a href="/"><img src="/images/logos/yuzi-full-logo-inverted.svg" alt="Yuzi Care, Inc. logo" className="mt-1 w-[150px]"/></a>
     </div>
   </div>
 </div>
