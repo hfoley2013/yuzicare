@@ -3,7 +3,7 @@ meta_title: Seattle Postpartum Hotel - Postpartum Retreat | Yuzi
 
 banner:
   title: Yuzi Postnatal Retreat
-  content: Rest, rejuvenate, and connect. Easing your transition into motherhood.
+  content: Care, Confidence, and Community. Easing your transition into motherhood.
   content_2: Coming to Seattle, WA in 2024
   image: /images/landing_page/yuzi_hero_family.webp
   button:
