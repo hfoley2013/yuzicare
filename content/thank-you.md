@@ -8,7 +8,7 @@ noindex: true
 canonical: "https://yuzicare.com/thank-you"
 ---
 
-<div className="text-semibold text-xl sm:text-2xl text-center">
+<div className="text-semibold text-xl sm:text-2xl text-center space-x-4">
   <p className="mx-auto max-w-[550px]">
     You have reserved your spot at the *Yuzi Retreat* and should receive an email confirmation shortly.
   </p>
