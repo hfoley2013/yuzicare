@@ -6,9 +6,9 @@ function ReservationCheckoutFlowStep3({ onClose, formData }) {
   return (
     <section className="fixed inset-0 z-50 items-center justify-center p-4 mt-4 overflow-y-auto md:flex">
       <div className='flex flex-col md:flex-row'>
-        <div className='flex-grow px-10 py-10 rounded-md bg-primary'>
+        <div className='flex-grow px-10 py-10 rounded-md shadow-lg bg-theme-light'>
           <Image
-            src="/images/logos/yuzi-ring-logo.png"
+            src="/images/logos/yuzi-ring-logo-no-bg.svg"
             alt="Logo"
             width={500}
             height={500}

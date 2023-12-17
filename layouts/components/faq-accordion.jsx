@@ -11,7 +11,7 @@ export function FaqAccordion({ faq }) {
       <Accordion className="w-full mt-4" collapsible="" type="multiple">
         {faq.map((item, i) => (
           <AccordionItem key={i} value={item}>
-            <AccordionTrigger className="text-base font-bold text-left md:text-lg lg:text-2xl hover:underline-none text-primary">
+            <AccordionTrigger className="text-base font-bold text-left md:text-lg lg:text-2xl hover:underline-none text-secondary">
               {markdownify(item.title)}
             </AccordionTrigger>
             <AccordionContent className="text-sm md:text-base lg:text-xl">

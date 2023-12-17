@@ -55,18 +55,18 @@ function ReservationCheckoutFlowStep1({ onSubmit, onClose, formData }) {
   return (
     <section className="fixed inset-0 z-50 items-center justify-center p-4 mt-4 overflow-y-auto md:flex">
       <div className='flex flex-col md:flex-row'>
-        <div className='flex-grow rounded-md bg-primary'>
+        <div className='flex-grow rounded-md bg-theme-light'>
           <Image
-            src="/images/logos/yuzi-ring-logo.png"
+            src="/images/logos/yuzi-ring-logo-no-bg.svg"
             alt="Logo"
             width={500}
             height={500}
             className='hidden object-contain p-4 mt-5 rounded-md md:block'
           />
           <div className='py-5'>
-            <h3 className="text-center text-theme-light">Step 1</h3>
-            <hr className='w-[80%] mx-auto border-theme-light'></hr>
-            <h4 className="text-center text-theme-light">Basic Information</h4>
+            <h3 className="text-center text-secondary">Step 1</h3>
+            <hr className='w-[80%] mx-auto border-secondary'></hr>
+            <h4 className="text-center text-secondary">Basic Information</h4>
           </div>
         </div>
         <div className="relative w-full max-w-screen-sm p-4 mx-auto rounded-lg shadow-lg bg-theme-light">
@@ -217,7 +217,7 @@ function ReservationCheckoutFlowStep1({ onSubmit, onClose, formData }) {
 
             <div className="w-full text-center">
               <button
-                className="w-full px-4 py-2 text-white rounded-full bg-primary hover:bg-primary/50 focus:outline-none focus:shadow-outline"
+                className="w-full px-4 py-2 font-bold text-white rounded-full bg-secondary hover:bg-secondary/50 focus:outline-none focus:shadow-outline"
                 type="submit"
                 id="complete-checkout-step-1-button"
               >
