@@ -19,10 +19,10 @@
   li {
     @apply inline-block;
     a {
-      @apply block h-9 w-9 rounded-full border border-primary text-center text-white transition hover:bg-primary;
+      @apply block h-9 w-9 rounded-full border border-secondary text-center text-white transition hover:bg-secondary;
 
       svg {
-        @apply m-auto h-9 fill-primary;
+        @apply m-auto h-9 fill-secondary;
       }
 
       &:hover svg {
@@ -33,13 +33,13 @@
 }
 
 .header-social-icons {
-  @apply space-x-2;
+  @apply space-x-2 space-y-4;
   li {
     a {
-      @apply block h-6 w-6 rounded-full border border-primary text-center text-white transition hover:bg-primary;
+      @apply block h-6 w-6 rounded-full border border-secondary text-center text-white transition hover:bg-secondary;
 
       svg {
-        @apply m-auto h-6 fill-primary;
+        @apply m-auto h-6 fill-secondary;
       }
 
       &:hover svg {

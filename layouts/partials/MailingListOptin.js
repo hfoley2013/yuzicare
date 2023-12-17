@@ -157,7 +157,7 @@ function MailingListOptin({ onClose }) {
   return (
     <section className="fixed inset-0 z-50 items-center justify-center p-4 mt-4 overflow-y-auto md:flex">
       <div className='flex flex-col md:flex-row'>
-        <div className='flex-grow rounded-md bg-primary'>
+        <div className='flex-grow bg-white rounded-md shadow-lg'>
           <Image
             src="/images/logos/yuzi-ring-logo.png"
             alt="Logo"
@@ -166,7 +166,7 @@ function MailingListOptin({ onClose }) {
             className='hidden object-contain p-4 mt-5 rounded-md md:block'
           />
           <div className='py-5 my-auto'>
-            <h3 className="text-center text-theme-light">Join the Mailing List</h3>
+            <h3 className="text-center text-secondary">Join the Mailing List</h3>
           </div>
         </div>
         <div className="relative w-full max-w-screen-sm p-4 mx-auto bg-white rounded-lg shadow-lg">
@@ -254,7 +254,7 @@ function MailingListOptin({ onClose }) {
 
             <div className="w-full text-center">
               <button
-                className="w-full px-4 py-2 text-white rounded-full bg-primary hover:bg-primary/50 focus:outline-none focus:shadow-outline"
+                className="w-full px-4 py-2 font-bold text-white rounded-full bg-secondary hover:bg-secondary/50 focus:outline-none focus:shadow-outline"
                 type="submit"
                 id="join-mailing-list-button"
               >

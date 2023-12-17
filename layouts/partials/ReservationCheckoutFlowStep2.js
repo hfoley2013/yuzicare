@@ -61,18 +61,18 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
     <section className="fixed inset-0 z-50 items-center justify-center p-4 mt-4 overflow-y-auto md:flex">
 
       <div className='flex flex-col md:flex-row'>
-        <div className='flex-grow rounded-md bg-primary'>
+        <div className='flex-grow rounded-md shadow-lg bg-theme-light'>
           <Image
-            src="/images/logos/yuzi-ring-logo.png"
+            src="/images/logos/yuzi-ring-logo-no-bg.svg"
             alt="Logo"
             width={500}
             height={500}
             className='hidden object-contain p-4 mt-5 md:block'
           />
           <div className='py-5'>
-            <h3 className="text-center text-theme-light">Step 2</h3>
-            <hr className='w-[80%] mx-auto border-theme-light'></hr>
-            <h4 className="text-center text-theme-light">Your Visit</h4>
+            <h3 className="text-center text-secondary">Step 2</h3>
+            <hr className='w-[80%] mx-auto border-secondary'></hr>
+            <h4 className="text-center text-secondary">Your Visit</h4>
           </div>
         </div>
         <div className="relative w-full max-w-screen-sm p-4 mx-auto rounded-lg shadow-lg bg-theme-light">
@@ -192,14 +192,14 @@ function ReservationCheckoutFlowStep2({ onSubmit, onClose, onPrev, formData }) {
 
             <div className="flex justify-between text-center">
               <button
-                className="w-[40%] px-4 py-2 font-bold text-white bg-primary/20 rounded-full  hover:bg-primary focus:outline-none focus:shadow-outline"
+                className="w-[40%] px-4 py-2 font-bold text-white bg-secondary/20 rounded-full  hover:bg-secondary focus:outline-none focus:shadow-outline"
                 type="button"
                 onClick={onPrev}
               >
                 Previous
               </button>
               <button
-                className="w-[40%] px-4 py-2 font-bold text-white bg-primary rounded-full hover:bg-primary/50 focus:outline-none focus:shadow-outline"
+                className="w-[40%] px-4 py-2 font-bold text-white bg-secondary rounded-full hover:bg-secondary/50 focus:outline-none focus:shadow-outline"
                 type="submit"
                 id="complete-checkout-step-2-button"
               >
