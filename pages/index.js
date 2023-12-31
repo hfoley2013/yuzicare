@@ -37,21 +37,6 @@ const Home = ({ frontmatter }) => {
   };
 
   useEffect(() => {
-    async function delayModalOpening() {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve();
-        }, 3000);
-      });
-    }
-
-    delayModalOpening().then(() => {
-      setIsMailingListOptinVisible(true);
-    });
-  }, []);
-
-
-  useEffect(() => {
     if (isReservationCheckoutVisible || isMailingListOptinVisible) {
       // Prevent scrolling when the modal is visible
       document.body.style.overflow = "hidden";

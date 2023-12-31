@@ -156,27 +156,16 @@ function MailingListOptin({ onClose }) {
   };
   return (
     <section className="fixed inset-0 z-50 items-center justify-center p-4 mt-4 overflow-y-auto md:flex">
-      <div className='flex flex-col md:flex-row'>
-        <div className='flex-grow bg-white rounded-md shadow-lg'>
-          <Image
-            src="/images/logos/yuzi-ring-logo.png"
-            alt="Logo"
-            width={500}
-            height={500}
-            className='hidden object-contain p-4 mt-5 rounded-md md:block'
-          />
-          <div className='py-5 my-auto'>
-            <h3 className="text-center text-secondary">Join the Mailing List</h3>
-          </div>
-        </div>
-        <div className="relative w-full max-w-screen-sm p-4 mx-auto bg-white rounded-lg shadow-lg">
+      <div className='flex flex-col'>
+        <div className="relative w-full max-w-screen-sm p-4 mx-auto bg-white border-4 rounded-lg shadow-lg border-secondary">
           <button
             onClick={onClose}
             className="absolute top-0 right-0 mr-4 text-dark hover:text-gray-800 focus:outline-none"
           >
             X
           </button>
-          <h2 className="mb-4 text-2xl font-bold text-center">Access to Exclusive Offers and Community Insights</h2>
+          <h2 className="mb-4 text-center text-secondary">Join the Mailing List</h2>
+          <h3 className="mb-4 text-2xl font-bold text-center">Access to Exclusive Offers and Community Insights</h3>
           <form id="join-mailing-list-form" className="space-y-4" onSubmit={handleSubmit((formData) => {
             handleMailingListSubmit(formData)
               .then(() => {
