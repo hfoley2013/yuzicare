@@ -7,12 +7,17 @@ import Faq from "@layouts/Faq";
 import Pricing from "@layouts/Pricing";
 import Team from "@layouts/Team";
 import { getRegularPage, getSinglePage } from "@lib/contentParser";
+import { useModalContext } from "context/ModalContext";
+import MailingListOptin from "@layouts/partials/MailingListOptin";
 
 // for all regular pages
 const RegularPages = ({ data }) => {
   const { title, meta_title, description, image, noindex, canonical, layout } =
     data.frontmatter;
   const { content } = data;
+
+  const { isVisible, openModal, closeModal } = useModalContext();
+
 
   return (
     <Base
@@ -22,6 +27,7 @@ const RegularPages = ({ data }) => {
       image={image}
       noindex={noindex}
       canonical={canonical}
+      openModalFunction={openModal}
     >
       {layout === "404" ? (
         <NotFound data={data} />
@@ -39,6 +45,13 @@ const RegularPages = ({ data }) => {
         (
           <Default data={data} />
         )}
+      {isVisible && (
+        <section className="z-10 flex items-center justify-center w-full h-screen">
+          <MailingListOptin
+            onClose={closeModal}
+          />
+        </section>
+      )}
     </Base>
   );
 };

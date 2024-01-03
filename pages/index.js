@@ -8,17 +8,16 @@ import { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import { getListPage } from "../lib/contentParser";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import MailingListOptin from "@layouts/partials/MailingListOptin";
 import ReservationCheckoutFlow from "@layouts/components/ReservationCheckoutFlow";
-
+import { useModalContext } from "context/ModalContext";
 
 
 const Home = ({ frontmatter }) => {
   const { meta_title, banner, feature, services, workflow, call_to_action } = frontmatter;
   const { title } = config.site;
   const [isReservationCheckoutVisible, setIsReservationCheckoutVisible] = useState(false);
-  const [isMailingListOptinVisible, setIsMailingListOptinVisible] = useState(false);
 
   const startReservationCheckout = () => {
     setIsReservationCheckoutVisible(true);
@@ -28,28 +27,8 @@ const Home = ({ frontmatter }) => {
     setIsReservationCheckoutVisible(false);
   };
 
-  const openMailingListModal = () => {
-    setIsMailingListOptinVisible(true);
-  };
-
-  const closeMailingListModal = () => {
-    setIsMailingListOptinVisible(false);
-  };
-
-  useEffect(() => {
-    if (isReservationCheckoutVisible || isMailingListOptinVisible) {
-      // Prevent scrolling when the modal is visible
-      document.body.style.overflow = "hidden";
-    } else {
-      // Reset the body's overflow property
-      document.body.style.overflow = "auto";
-    }
-
-    // Clean up the effect when the component unmounts
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [isReservationCheckoutVisible, isMailingListOptinVisible]);
+  // Use the useModalContext hook for Mailing List Optin
+  const { isVisible: isMailingListOptinVisible, openModal: openMailingListModal, closeModal: closeMailingListModal } = useModalContext();
 
   return (
     <Base title={meta_title ?? title} openModalFunction={openMailingListModal}>
