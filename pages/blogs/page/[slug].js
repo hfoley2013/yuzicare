@@ -6,6 +6,8 @@ import { parseMDX } from "@lib/utils/mdxParser";
 import { markdownify } from "@lib/utils/textConverter";
 import Posts from "@partials/Posts";
 const { blog_folder } = config.settings;
+import MailingListOptin from "@layouts/partials/MailingListOptin";
+import { useModalContext } from "context/ModalContext";
 
 // blog pagination
 const BlogPagination = ({ postIndex, posts, currentPage, pagination }) => {
@@ -15,9 +17,10 @@ const BlogPagination = ({ postIndex, posts, currentPage, pagination }) => {
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
   const { frontmatter, content } = postIndex;
   const { title } = frontmatter;
+  const { isVisible, openModal, closeModal } = useModalContext();
 
   return (
-    <Base title={title}>
+    <Base title={title} openModalFunction={openModal}>
       <section className="section">
         <div className="container">
           {markdownify(title, "h1", "h1 text-center font-normal text-[56px]")}
@@ -27,6 +30,13 @@ const BlogPagination = ({ postIndex, posts, currentPage, pagination }) => {
             totalPages={totalPages}
             currentPage={currentPage}
           />
+          {isVisible && (
+            <section className="z-10 flex items-center justify-center w-full h-screen">
+              <MailingListOptin
+                onClose={closeModal}
+              />
+            </section>
+          )}
         </div>
       </section>
     </Base>

@@ -3,13 +3,18 @@ import shortcodes from "@shortcodes/all";
 import { MDXRemote } from "next-mdx-remote";
 import Image from "next/image";
 import Base from "./Baseof";
+import MailingListOptin from "./partials/MailingListOptin";
+import { useModalContext } from "context/ModalContext";
+
 
 const PostSingle = ({ frontmatter, content, mdxContent }) => {
   let { description, title, image, meta_title, canonical, noindex } = frontmatter;
   description = description ? description : content.slice(0, 120);
+  const { isVisible, openModal, closeModal } = useModalContext();
+
 
   return (
-    <Base title={title} description={description} meta_title={meta_title} canonical={canonical} noindex={noindex} image={image}>
+    <Base title={title} description={description} meta_title={meta_title} canonical={canonical} noindex={noindex} image={image} openModalFunction={openModal}>
       <section className="section">
         <div className="container">
           <div className="row">
@@ -33,6 +38,13 @@ const PostSingle = ({ frontmatter, content, mdxContent }) => {
           </div>
         </div>
       </section>
+      {isVisible && (
+        <section className="z-10 flex items-center justify-center w-full h-screen">
+          <MailingListOptin
+            onClose={closeModal}
+          />
+        </section>
+      )}
     </Base>
   );
 };

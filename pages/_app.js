@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import TagManager from "react-gtm-module";
 import Script from "next/script";
 import "styles/style.scss";
+import { ModalProvider } from "context/ModalContext";
 
 const App = ({ Component, pageProps }) => {
   // default theme setup
@@ -55,7 +56,9 @@ const App = ({ Component, pageProps }) => {
           content="width=device-width, initial-scale=1"
         />
       </Head>
-      <Component {...pageProps} />
+      <ModalProvider>
+        <Component {...pageProps} />
+      </ModalProvider>
 
       {/* microsoft-clarity */}
       <Script

@@ -9,13 +9,15 @@ const Article = ({ post, authors, mdxContent, slug }) => {
   const { frontmatter, content } = post[0];
 
   return (
-    <PostSingle
-      frontmatter={frontmatter}
-      content={content}
-      mdxContent={mdxContent}
-      authors={authors}
-      slug={slug}
-    />
+    <>
+      <PostSingle
+        frontmatter={frontmatter}
+        content={content}
+        mdxContent={mdxContent}
+        authors={authors}
+        slug={slug}
+      />
+    </>
   );
 };
 
