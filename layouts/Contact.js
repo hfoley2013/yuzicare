@@ -57,9 +57,9 @@ const Contact = ({ data }) => {
 `;
 
     const toClientEmailTemplate = `
-    <div class="wrapper" style="background-color: #edf6f5;">
-<div class="header" style="text-align: center; margin: 10px; padding:10px"><img src="${process.env.NEXT_PUBLIC_BASE_URL}/images/logos/yuzi_lower_logo_600x200.png" alt="Yuzi Care" width="300" height="100"></div>
-<div class="content" style="margin: 0 auto; max-width: 600px; max-height: 200px; padding: 20px; background-color: #ffffff; border-radius: 25px;">
+  <article class="wrapper" style="background-color: #ecdad3;padding-bottom:8px;">
+<header class="header" style="text-align: center; margin: 10px; padding:10px"><a href="https://yuzicare.com"><img src="https://yuzi-assets.s3.us-west-2.amazonaws.com/yuzi-full-logo-no-bg.png" alt="Yuzi Care" width="300" height="169"></a></header>
+<div class="content" style="margin: 0 auto; max-width: 600px; padding: 20px; background-color: #ffffff; border-radius: 25px;">
 <p>Dear ${emailTemplateParams.firstname} ${emailTemplateParams.lastname},</p>
 <p>Thank you for contacting Yuzi Care.</p>
 <p>We received your message and a staff member will be contacting you shortly.</p>
@@ -75,7 +75,7 @@ const Contact = ({ data }) => {
 <table style="vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial; width: 100.707%; height: 65px;" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
-<td style="vertical-align: middle; width: 13.2454%;"><a href="https://yuzicare.com" target="_blank" rel="noopener"><img style="width: 150px; height: 50px;" src="${process.env.NEXT_PUBLIC_BASE_URL}/images/logos/yuzi_lower_logo_600x200.png" alt="Yuzi Care Logo"> </a>
+<td style="vertical-align: middle; width: 13.2454%;"><a href="https://yuzicare.com" target="_blank" rel="noopener"><img style="width: 75px; height: 75px;" src="https://yuzi-assets.s3.us-west-2.amazonaws.com/yuzi-ring-logo-no-bg.png" alt="Yuzi Care Logo"> </a>
 <div style="width: 20px;">&nbsp;</div>
 </td>
 <td style="width: 0.86571%; border-bottom: none; border-left: 1px solid rgb(138, 136, 134);" width="1" height="auto">&nbsp;</td>
@@ -87,7 +87,7 @@ const Contact = ({ data }) => {
 <table style="vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial;" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
-<td style="vertical-align: bottom;"><span style="display: inline-block; background-color: #0aa8a7;"><img style="display: block; background-color: #0aa8a7;" src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/phone-icon-2x.png" alt="mobilePhone" width="13"></span></td>
+<td style="vertical-align: bottom;"><span style="display: inline-block; background-color: #520864;"><img style="display: block; background-color:#520864;" src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/phone-icon-2x.png" alt="mobilePhone" width="13"></span></td>
 </tr>
 </tbody>
 </table>
@@ -99,7 +99,7 @@ const Contact = ({ data }) => {
 <table style="vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial;" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
-<td style="vertical-align: bottom;"><span style="display: inline-block; background-color: rgb(138,136,134);"><img style="display: block; background-color: #0aa8a7;" src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/email-icon-2x.png" alt="emailAddress" width="13"></span></td>
+<td style="vertical-align: bottom;"><span style="display: inline-block; background-color: rgb(138,136,134);"><img style="display: block; background-color:#520864;" src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/email-icon-2x.png" alt="emailAddress" width="13"></span></td>
 </tr>
 </tbody>
 </table>
@@ -111,7 +111,7 @@ const Contact = ({ data }) => {
 <table style="vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial;" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
-<td style="vertical-align: bottom;"><span style="display: inline-block; background-color: rgb(138,136,134);"><img style="display: block; background-color: #0aa8a7;" src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/link-icon-2x.png" alt="website" width="13"></span></td>
+<td style="vertical-align: bottom;"><span style="display: inline-block; background-color: rgb(138,136,134);"><img style="display: block; background-color: #520864;" src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/link-icon-2x.png" alt="website" width="13"></span></td>
 </tr>
 </tbody>
 </table>
@@ -123,7 +123,7 @@ const Contact = ({ data }) => {
 <table style="vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial;" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
-<td style="vertical-align: bottom;"><span style="display: inline-block; background-color: rgb(138,136,134);"><img style="display: block; background-color: #0aa8a7;" src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/address-icon-2x.png" alt="address" width="13"></span></td>
+<td style="vertical-align: bottom;"><span style="display: inline-block; background-color: rgb(138,136,134);"><img style="display: block; background-color:#520864;" src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/address-icon-2x.png" alt="address" width="13"></span></td>
 </tr>
 </tbody>
 </table>
@@ -142,15 +142,11 @@ const Contact = ({ data }) => {
 </table>
 <table style="vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial; width: 50.3333%; height: 23.9931px;" cellspacing="0" cellpadding="0">
 <tbody>
-<tr style="height: 23.9931px;">
-<td style="width: 100%; height: 23.9931px;">
-<div style="display: flex; vertical-align: middle; justify-content: space-between; align-items: center; padding-left: 50%;"><a href="https://www.linkedin.com/company/yuzi-care" target="_blank" rel="noopener"><img style="vertical-align: middle; height: 24px;" src="https://yuzi-assets.s3.us-west-2.amazonaws.com/linkedin.png" alt="Yuzi LinkedIn"> </a> <a href="https://twitter.com/Yuzicare" target="_blank" rel="noopener"> <img style="height: 24px; vertical-align: middle;" src="https://yuzi-assets.s3.us-west-2.amazonaws.com/twitter.png" alt="Yuzi Twitter"> </a> <a href="https://www.instagram.com/yuzicare" target="_blank" rel="noopener"> <img style="vertical-align: middle; height: 24px;" src="https://yuzi-assets.s3.us-west-2.amazonaws.com/instagram.png" alt="Yuzi Instagram"> </a></div>
-</td>
-</tr>
+<tr><td style="text-align:center;vertical-align:middle"><table cellpadding="0" cellspacing="0" style="display:inline-block;vertical-align:-webkit-baseline-middle;font-size:medium;font-family:Lato"><tbody><tr style="text-align:right"><td><a href="https://www.facebook.com/Yuzicare" color="#520864" style="display:inline-block;padding:0px;background-color:rgb(82,8,100)" target="_blank"><img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/facebook-icon-2x.png" alt="facebook" color="#520864" height="24" style="background-color:rgb(82,8,100);max-width:135px;display:block"></a></td><td width="5"><div></div></td><td><a href="https://twitter.com/Yuzicare" color="#520864" style="display:inline-block;padding:0px;background-color:rgb(82,8,100)" target="_blank"><img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/twitter-icon-2x.png" alt="twitter" color="#520864" height="24" style="background-color:rgb(82,8,100);max-width:135px;display:block"></a></td><td width="5"><div></div></td><td><a href="https://linkedin.com/company/yuzi-care/" color="#520864" style="display:inline-block;padding:0px;background-color:rgb(82,8,100)" target="_blank"><img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/linkedin-icon-2x.png" alt="linkedin" color="#520864" height="24" style="background-color:rgb(82,8,100);max-width:135px;display:block"></a></td><td width="5"><div></div></td><td><a href="https://www.instagram.com/yuzicare/" color="#520864" style="display:inline-block;padding:0px;background-color:rgb(82,8,100)" target="_blank"><img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/instagram-icon-2x.png" alt="instagram" color="#520864" height="24" style="background-color:rgb(82,8,100);max-width:135px;display:block"></a></td><td width="5"><div></div></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td height="30"></td></tr>
 </tbody>
 </table>
 </div>
-</div>
+</article>
 `;
 
 
