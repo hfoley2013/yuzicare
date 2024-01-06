@@ -12,6 +12,7 @@ const Contact = ({ data }) => {
   const [showToast, setShowToast] = useState(false);
   const [fromName, setFromName] = useState('');
   const [isPregnant, setIsPregnant] = useState(false);
+  const [joinedMailingList, setJoinedMailingList] = useState(true);
 
   const sendEmails = async (e) => {
     e.preventDefault();
@@ -27,6 +28,7 @@ const Contact = ({ data }) => {
       message: form.current.elements.message.value,
       how_did_you_hear_about_us_: form.current.elements.how_did_you_hear_about_us_.value,
       subject: form.current.elements.subject.value,
+      join_mailing_list: form.current.elements.join_mailing_list.value ? 'Yes' : 'No',
     };
 
     const toClientMessageConfig = {
@@ -50,6 +52,7 @@ const Contact = ({ data }) => {
 <p><strong>Is Pregnant:</strong> ${emailTemplateParams.is_pregnant_}</p>
 <p><strong>Due Date:</strong> ${emailTemplateParams.due_date}</p>
 <p><strong>Attribution Source:</strong> ${emailTemplateParams.how_did_you_hear_about_us_}</p>
+<p><strong>Joined Mailing List:</strong> ${emailTemplateParams.join_mailing_list}</p>
 <p>&nbsp;</p>
 <p>Best wishes,</p>
 <p>&nbsp;</p>
@@ -285,13 +288,25 @@ const Contact = ({ data }) => {
                   maxLength={1024}
                 />
               </div>
-              <button
-                type="submit"
-                className="btn btn-primary"
-                id="submit-contact-form-button"
-              >
-                Send Now
-              </button>
+              <div className="my-3">
+                <label htmlFor="join_mailing_list" className="font-bold text-black hover:cursor-pointer" onClick={() => setJoinedMailingList(!joinedMailingList)}>Join Mailing List</label>
+                <input
+                  className="mx-2 hover:cursor-pointer"
+                  name="join_mailing_list"
+                  type="checkbox"
+                  onClick={() => setJoinedMailingList(!joinedMailingList)}
+                  checked={joinedMailingList}
+                />
+              </div>
+              <div className="flex">
+                <button
+                  type="submit"
+                  className="btn btn-primary"
+                  id="submit-contact-form-button"
+                >
+                  Send Now
+                </button>
+              </div>
             </form>
           </div>
           <div className="content col-12 md:col-6 lg:col-5">
